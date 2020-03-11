@@ -27,7 +27,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * vue全家桶（vue、vue-cli、vuex、vue-router）
 * ui框架：ElementUI
 * 前后端通信工具：axios
-* 设计：模范bilibili。
+* 代码检查工具：esline
+* 设计：模仿bilibili及hulu。
+* 图标库：Font Awesome
 
 ## 开发规范（不强制）
 * 当编写vue遇到命名困难时，不妨看看这个：https://cn.vuejs.org/v2/style-guide/

@@ -5,8 +5,11 @@
 </template>
 
 <script>
+
 export default {
-    name:"Login"
+    name:"Login",
+    components:{
+    }
 }
 </script>
 

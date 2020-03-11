@@ -18,7 +18,7 @@ const HOME = {
 }
 
 const LOGIN = {
-    path: "/login",
+    path: "/login/:param",
     component: Login
 }
 
