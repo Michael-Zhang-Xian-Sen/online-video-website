@@ -29,6 +29,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * 前后端通信工具：axios
 * 代码检查工具：esline
 * 设计：模仿bilibili及hulu。
+    * bilibili:https://www.bilibili.com/?spm_id_from=333.130.b_696e7465726e6174696f6e616c486561646572.1
+    * hulu:https://www.hulu.com/tv
 * 图标库：Font Awesome
 
 ## 开发规范（不强制）
