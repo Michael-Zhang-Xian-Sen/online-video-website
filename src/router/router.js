@@ -23,7 +23,7 @@ const LOGIN = {
 }
 
 const VIDEO = {
-    path: "/video",
+    path: "/video/:param",
     component: Video
 }
 
