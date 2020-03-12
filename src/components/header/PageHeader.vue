@@ -1,12 +1,15 @@
 <template>
-	<div id="pageHeader" :class="[{'no-scroll':scrollTop == 0 && nowPath == '/home'}]">
+	<div
+		id="pageHeader"
+		:class="[{'no-scroll':scrollTop == 0 && nowPath == '/home'},{'fix-header':nowPath == '/home'}]"
+	>
 		<ul class="nav-link">
-			<li class="header-logo">
+			<li class="nav-link-item header-logo">
 				<img src="@/assets/image/logoPE.png" />
 				<span>我爱运动</span>
 			</li>
 			<li class="nav-link-item">
-				<span>主页</span>
+				<span @click="routerPush('/home')">主页</span>
 			</li>
 		</ul>
 		<ul class="nav-user">
@@ -14,10 +17,10 @@
 				<img class="user-head" src="@/assets/image/default_head.jpg" />
 			</li>
 			<li class="nav-link-item">
-				<span @click="toLogin('user-login')">登陆</span>
+				<span @click="routerPush('/login/user-login')">登陆</span>
 			</li>
 			<li class="nav-link-item">
-				<span @click="toLogin('user-register')">注册</span>
+				<span @click="routerPush('/login/user-register')">注册</span>
 			</li>
 			<!-- 未开发该功能，故不予显示 -->
 			<!-- <li class="nav-user">
@@ -28,17 +31,15 @@
 </template>
 
 <script>
+import { routerPush } from "@/utils/vue_router_util.js";
+
 export default {
 	name: "PageHeader",
 	data() {
 		return {
-            scrollTop: 0,
-            nowPath:"",
+			scrollTop: 0
 		};
-    },
-    created(){
-        this.nowPath = this.$route.path;
-    },
+	},
 	mounted() {
 		window.addEventListener("scroll", this.handleScroll, true);
 	},
@@ -46,12 +47,19 @@ export default {
 		fetchAllData() {
 			// 获取后端数据
 		},
+		// 处理滚动条
 		handleScroll() {
 			this.scrollTop =
 				document.documentElement.scrollTop || document.body.scrollTop;
 		},
-		toLogin(param) {
-			this.$router.push("/login/" + param);
+		// 跳转
+		routerPush(path) {
+			routerPush.call(this, path);
+		}
+	},
+	computed: {
+		nowPath() {
+			return this.$route.path;
 		}
 	}
 };
@@ -59,7 +67,6 @@ export default {
 
 <style scoped>
 #pageHeader {
-	position: fixed;
 	display: flex;
 	justify-content: space-between;
 	height: 56px;
@@ -73,12 +80,15 @@ export default {
 	transition: background-color 0.5s;
 	-webkit-transition: background-color 0.5s;
 }
+.fix-header {
+	position: fixed;
+}
 .no-scroll {
 	background-color: rgba(0, 0, 0, 0) !important;
-    border-bottom: 0px !important;
+	border-bottom: 0px !important;
 	box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
 	transition: background-color 0.5s;
-    -webkit-transition: background-color 0.5s;
+	-webkit-transition: background-color 0.5s;
 }
 
 /* nav左栏 链接操作 */
@@ -99,6 +109,7 @@ export default {
 	height: 32px;
 }
 .header-logo span {
+	cursor: pointer;
 	margin-left: 4px;
 	font-size: 14px;
 	color: #212121;
@@ -145,7 +156,7 @@ export default {
 	-webkit-transition: 0.5s;
 }
 .nav-link-item span:hover {
-	color: #409eff;
+	color: #00a1d6;
 }
 
 /* 最顶端时的样式 */

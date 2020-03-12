@@ -32,13 +32,16 @@
 			</el-row>
 			<el-row class="other-info">
 				<el-col :span="6">
+					<!-- 这里做分享网站的链接 -->
 					<div class="footer-item2">
 						<div>
-							<font-awesome-icon :icon="['fab','fa-qq']" />
+							<font-awesome-icon @click="shareLink('qq')" :icon="['fab','qq']" class="brand-logo" />
+							<font-awesome-icon @click="shareLink('weixin')" :icon="['fab','weixin']" class="brand-logo" />
 						</div>
 					</div>
 				</el-col>
-				<el-col :span="18"></el-col>
+				<el-col :span="12" class="footer-icp">这里是icp备案</el-col>
+				<el-col :span="6"></el-col>
 			</el-row>
 		</div>
 	</div>
@@ -46,7 +49,12 @@
 
 <script>
 export default {
-	name: "PageFooter"
+	name: "PageFooter",
+	methods: {
+		shareLink(type) {
+			alert(type);
+		}
+	}
 };
 </script>
 
@@ -58,15 +66,15 @@ export default {
 	justify-content: center;
 }
 .page-footer-content {
-	width: 1400px;
+    max-width: 1400px;
+    width: 80%;
 }
-/* 网站信息 */
+/* 底栏第一行：网站信息 */
 .website-info {
 	padding: 52px 0 86px 0;
 	border-bottom: 2px solid #dcdfe6;
 }
-
-/* 条目内容 */
+/* 条目内容1*/
 .footer-item1 .item-header {
 	display: flex;
 	align-items: center;
@@ -86,10 +94,23 @@ export default {
 	list-style: none;
 }
 
-/* 其他信息 */
+/* 底栏第二行：其他信息 */
 .other-info {
 	display: flex;
 	align-items: center;
-	height: 50px;
+	padding: 32px 0px;
+	font-size: 12px;
+	color: #656b7b;
+	letter-spacing: 1px;
+}
+/* icp备案信息 */
+.footer-icp {
+	display: flex;
+	justify-content: center;
+}
+.brand-logo {
+	font-size: 19px;
+    margin-right: 32px;
+    cursor: pointer;
 }
 </style>
