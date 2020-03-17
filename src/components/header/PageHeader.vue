@@ -13,6 +13,9 @@
 			</li>
 		</ul>
 		<ul class="nav-user">
+			<li class="nav-link-item" @click="routerPush('/video_upload')">
+				<img class="user-head" src="@/assets/image/video_upload.jpg" />
+			</li>
 			<li class="nav-link-item">
 				<img class="user-head" src="@/assets/image/default_head.jpg" />
 			</li>

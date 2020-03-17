@@ -4,6 +4,7 @@ import Home from "@/page/home/Home.vue"
 import Login from "@/page/login/Login.vue"
 import Video from "@/page/video/Video.vue"
 import VideoList from "@/page/sports/VideoList.vue"
+import VideoUpload from "@/page/video_upload/VideoUpload.vue"
 
 Vue.use(VueRouter)
 
@@ -32,12 +33,18 @@ const VIDEO_LIST = {
     component:VideoList
 }
 
+const VIDEO_UPLOAD = {
+    path: "/video_upload",
+    component: VideoUpload
+}
+
 const routes = [
     DEFAULT_PAGE,   // 默认页面
     HOME,           // 主页
     LOGIN,          // 登陆/注册页面
     VIDEO,          // 视频详情页面
     VIDEO_LIST,     // 视频列表页面，比如足球视频、排球视频等。
+    VIDEO_UPLOAD,         // 上传视频
 
 ]
 
