@@ -11,12 +11,15 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import brands from "@fortawesome/fontawesome-free-brands"       // 品牌图标
 import solid from  "@fortawesome/fontawesome-free-solid"        // solid图标
+import VueClipboard from 'vue-clipboard2'        // 复制到剪贴板
+
 
 library.add(brands)
 library.add(solid)
 
 Vue.use(vueAxios, axios)
 Vue.use(ElementUI)
+Vue.use(VueClipboard)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
