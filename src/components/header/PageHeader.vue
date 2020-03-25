@@ -13,17 +13,14 @@
 			</li>
 		</ul>
 		<ul class="nav-user">
-			<li class="nav-link-item" @click="routerPush('/video_upload')">
-				<img class="user-head" src="@/assets/image/video_upload.jpg" />
-			</li>
 			<li class="nav-link-item">
 				<img class="user-head" src="@/assets/image/default_head.jpg" />
 			</li>
 			<li class="nav-link-item">
-				<span @click="routerPush('/login/user-login')">登陆</span>
+				<span @click="routerPush('/login/login')">登陆</span>
 			</li>
 			<li class="nav-link-item">
-				<span @click="routerPush('/login/user-register')">注册</span>
+				<span @click="routerPush('/login/register_tel')">注册</span>
 			</li>
 			<!-- 未开发该功能，故不予显示 -->
 			<!-- <li class="nav-user">
