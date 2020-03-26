@@ -5,44 +5,49 @@
 		</div>
 		<div id="homeContent">
 			<div id="menu">
-				<el-row>
+				<el-row class="column-wrapper">
 					<el-col :span="4">
-						<el-row class="menu-button-left">
-							<el-col :span="7" class="menu-button-left-item">
-								<div class="menu-button-left-item-wrapper menu-button-home-wrapper">
-									<font-awesome-icon icon="home" class="menu-button-home"></font-awesome-icon>
+						<el-row class="menu-left">
+							<el-col :span="8" class="menu-left-left-column">
+								<div class="ml-item-wrapper">
+									<div class="menu-left-item home-wrapper">
+										<font-awesome-icon icon="home" class="menu-home"></font-awesome-icon>
+									</div>
+									<span>首页</span>
 								</div>
-								<span>首页</span>
 							</el-col>
-							<el-col :span="7" class="menu-button-left-item">
-								<div class="menu-button-left-item-wrapper menu-button-home-wrapper">
-									<font-awesome-icon icon="home" class="menu-button-home"></font-awesome-icon>
+							<el-col :span="8" class="menu-left-middle-column">
+								<div class="ml-item-wrapper">
+									<div class="menu-left-item comment-dots-wrapper">
+										<font-awesome-icon icon="comment-dots" class="menu-comment-dots"></font-awesome-icon>
+									</div>
+									<span>动态</span>
 								</div>
-								<span>首页</span>
 							</el-col>
-							<el-col :span="7" class="menu-button-left-item">
-								<div class="menu-button-left-item-wrapper menu-button-home-wrapper">
-									<font-awesome-icon icon="home" class="menu-button-home"></font-awesome-icon>
+							<el-col :span="8" class="menu-left-item-wrapper menu-left-right-column">
+								<div class="ml-item-wrapper">
+									<div class="menu-left-item trophy-wrapper">
+										<font-awesome-icon icon="trophy" class="menu-trophy"></font-awesome-icon>
+									</div>
+									<span>排行榜</span>
 								</div>
-								<span>首页</span>
 							</el-col>
 						</el-row>
 					</el-col>
-					<el-col :span="16">
-						<el-row>
-							<el-col :span="3">足球</el-col>
-							<el-col :span="3">篮球</el-col>
-							<el-col :span="3">网球</el-col>
-							<el-col :span="3">羽毛球</el-col>
-							<el-col :span="3">乒乓球</el-col>
-							<el-col :span="3">象棋</el-col>
-							<el-col :span="3">围棋</el-col>
-							<el-col :span="3">游泳</el-col>
-						</el-row>
+					<span class="break-column"></span>
+					<!-- 栏目信息 -->
+					<el-col class="program-wrapper" :span="20">
+						<div class="program-list" v-for="row in program" :key="row.id">
+							<el-row>
+								<el-col class="program-item" :span="3" v-for="item in row" :key="item.id">
+									<span>{{item.text}}</span>
+								</el-col>
+							</el-row>
+						</div>
 					</el-col>
-					<el-col :span="4">这是一些其他的栏目</el-col>
 				</el-row>
 			</div>
+			<!-- 热门内容 下一行-->
 			<div id="popular">
 				<el-row class="popular-title-wrapper">
 					<el-col :span="4">
@@ -57,10 +62,11 @@
 						</el-row>
 					</el-col>
 				</el-row>
+				<!-- 内容item -->
 				<el-row>
 					<el-col :span="4">
 						<div class="video-item">
-							<img src="@/assets/image/basketball.jpg"  @click="routerPush('/video/video-id')"/>
+							<img src="@/assets/image/basketball.jpg" @click="routerPush('/video/video-id')" />
 							<div class="video-info">
 								<span class="video-title" @click="routerPush('/video/video-id')">三十天精通篮球</span>
 								<span class="video-publisher">作者：蔡徐坤</span>
@@ -84,9 +90,67 @@ import { routerPush } from "@/utils/vue_router_util.js";
 export default {
 	name: "Home",
 	methods: {
-		routerPush(path){
-			routerPush.call(this,path)
+		routerPush(path) {
+			routerPush.call(this, path);
 		}
+	},
+	data() {
+		return {
+			program: [
+				[
+					{
+						text: "足球"
+					},
+					{
+						text: "篮球"
+					},
+					{
+						text: "网球"
+					},
+					{
+						text: "羽毛球"
+					},
+					{
+						text: "乒乓球"
+					},
+					{
+						text: "象棋"
+					},
+					{
+						text: "围棋"
+					},
+					{
+						text: "军棋"
+					}
+				],
+				[
+					{
+						text: "游泳"
+					},
+					{
+						text: "拳击"
+					},
+					{
+						text: "体操"
+					},
+					{
+						text: "田径"
+					},
+					{
+						text: "赛马"
+					},
+					{
+						text: "射击"
+					},
+					{
+						text: "射箭"
+					},
+					{
+						text: "速滑"
+					}
+				]
+			]
+		};
 	}
 };
 </script>
@@ -108,22 +172,33 @@ export default {
 /* 1.菜单栏 */
 #menu {
 	padding: 20px 0;
-	width: 100%;
 	box-sizing: border-box;
 	border-bottom: 1px solid #e7e7e7;
 }
-/* 菜单栏按钮-左栏 */
-.menu-button-left {
+.column-wrapper {
 	display: flex;
-	justify-content: center;
+	position: relative;
+	align-items: center;
+	height: 100%;
+	width: 100%;
 }
-.menu-button-left-item {
+/* 菜单栏按钮-左栏 */
+.menu-left {
+	display: flex;
+	padding-left: 20px;
+	justify-content: space-between;
+}
+.ml-item-wrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 }
-.menu-button-left-item-wrapper {
+.ml-item-wrapper span {
+	margin-top: 4px;
+	font-size: 14px;
+}
+.menu-left-item {
 	height: 39px;
 	width: 39px;
 	border-radius: 50%;
@@ -131,29 +206,69 @@ export default {
 	align-items: center;
 	justify-content: center;
 }
-.menu-button-left-item span {
-	margin-top: 4px;
-	font-size: 14px;
+/* 菜单栏左栏 */
+.menu-left-left-column {
+	display: flex;
+	justify-content: flex-start;
 }
-/* 菜单栏按钮-左栏-主页按钮 */
-.menu-button-home-wrapper {
+.home-wrapper {
 	background-color: #f45b7b;
 }
-.menu-button-home {
+.menu-home {
 	font-size: 24px;
 	color: #ffffff;
 }
-/* 菜单栏按钮-中间栏 */
-.menu-channel {
+.menu-left-middle-column {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+}
+.comment-dots-wrapper {
+	background-color: #41a1d7;
+}
+.menu-comment-dots {
+	font-size: 24px;
+	color: #ffffff;
+}
+.menu-left-right-column {
+	display: flex;
+	justify-content: flex-end;
+}
+.trophy-wrapper {
+	flex-direction: column-reverse;
+	background-color: #ef6c00;
+}
+.menu-trophy {
+	padding-top: 3px;
+	font-size: 24px;
+	color: white;
+}
+/* 纵向分割线 */
+.break-column {
+	float: left;
+	height: 40px;
+	border-left: 1px solid #e7e7e7;
+	margin: 0 20px;
+}
+/* 菜单栏中间项目列表 */
+.program-wrapper {
+	position: relative;
 	height: 100%;
 }
-
+.program-list {
+	margin: 10px 0;
+}
+.program-item {
+	font-size: 14px;
+	color: #212121;
+}
+.program-item span:hover {
+	color: #00a1d6;
+	cursor: pointer;
+	transition: color 0.5s;
+}
 /* 2.热门内容 */
-#popular{
-	margin: 15px 0 30px 0 ;
+#popular {
+	margin: 15px 0 30px 0;
 }
 .popular-title-wrapper {
 	margin: 10px 0;
@@ -172,9 +287,9 @@ export default {
 .popular-title-text {
 	font-size: 30px;
 }
-/* 热门内容中的一个视频条目 */
 
-.video-item{
+/* 热门内容中的一个视频条目 */
+.video-item {
 	width: 90%;
 	padding: 0 5%;
 	display: flex;
