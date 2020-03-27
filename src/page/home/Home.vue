@@ -40,7 +40,10 @@
 						<div class="program-list" v-for="row in program" :key="row.id">
 							<el-row>
 								<el-col class="program-item" :span="3" v-for="item in row" :key="item.id">
-									<span>{{item.text}}</span>
+									<div>
+										<span>{{item.text}}</span>
+										<span effect="dark" class="program-tag" type="danger">999+</span>
+									</div>
 								</el-col>
 							</el-row>
 						</div>
@@ -48,44 +51,24 @@
 				</el-row>
 			</div>
 			<!-- 热门内容 下一行-->
-			<div id="popular">
-				<el-row class="popular-title-wrapper">
-					<el-col :span="4">
-						<el-row class="popular-title">
-							<el-col :span="1">&nbsp;</el-col>
-							<el-col :span="7" class="popular-icon-wrapper">
-								<font-awesome-icon :icon="['fab','hotjar']" class="popular-icon"></font-awesome-icon>
-							</el-col>
-							<el-col class="popular-title-text" :span="16">
-								<span>热门内容</span>
-							</el-col>
-						</el-row>
-					</el-col>
-				</el-row>
-				<!-- 内容item -->
-				<el-row>
-					<el-col :span="4">
-						<div class="video-item">
-							<img src="@/assets/image/basketball.jpg" @click="routerPush('/video/video-id')" />
-							<div class="video-info">
-								<span class="video-title" @click="routerPush('/video/video-id')">三十天精通篮球</span>
-								<span class="video-publisher">作者：蔡徐坤</span>
-							</div>
-						</div>
-					</el-col>
-					<el-col :span="4"></el-col>
-					<el-col :span="4"></el-col>
-					<el-col :span="4"></el-col>
-					<el-col :span="4"></el-col>
-					<el-col :span="4"></el-col>
-				</el-row>
-			</div>
+			<ProgramRow title="热点">
+				<template v-slot:icon>
+					<font-awesome-icon :icon="['fab','hotjar']" class="pr-icon"></font-awesome-icon>
+				</template>
+			</ProgramRow>
+			<!-- 下面的内容是近期的热点赛事，比如NBA -->
+			<ProgramRow title="NBA赛事">
+				<template v-slot:icon>
+					<font-awesome-icon icon="basketball-ball" class="basketball-icon"></font-awesome-icon>
+				</template>
+			</ProgramRow>
 		</div>
 	</div>
 </template>
 
 <script>
 import { routerPush } from "@/utils/vue_router_util.js";
+import ProgramRow from "@/components/home/ProgramRow.vue";
 
 export default {
 	name: "Home",
@@ -93,6 +76,9 @@ export default {
 		routerPush(path) {
 			routerPush.call(this, path);
 		}
+	},
+	components: {
+		ProgramRow
 	},
 	data() {
 		return {
@@ -198,6 +184,11 @@ export default {
 	margin-top: 4px;
 	font-size: 14px;
 }
+.ml-item-wrapper:hover {
+	color: #00a1d6;
+	cursor: pointer;
+	transition: color 0.5s;
+}
 .menu-left-item {
 	height: 39px;
 	width: 39px;
@@ -261,31 +252,32 @@ export default {
 	font-size: 14px;
 	color: #212121;
 }
-.program-item span:hover {
+.program-item div {
+	display: flex;
+	align-items: center;
+}
+.program-tag {
+	height: auto !important;
+	font-size: 6px !important;
+	padding: 0 5px;
+	line-height: normal;
+	margin-left: 5px;
+	background-color: #f56c6c;
+	border-color: #f56c6c;
+	color: #ffffff;
+	border-radius: 4px;
+}
+.program-item div:hover {
 	color: #00a1d6;
 	cursor: pointer;
 	transition: color 0.5s;
 }
 /* 2.热门内容 */
-#popular {
-	margin: 15px 0 30px 0;
+.pr-icon {
+	color: #f0361b;
 }
-.popular-title-wrapper {
-	margin: 10px 0;
-}
-.popular-title {
-	display: flex;
-	align-items: center;
-}
-.popular-icon-wrapper {
-	display: flex;
-	justify-content: center;
-}
-.popular-icon {
-	font-size: 36px;
-}
-.popular-title-text {
-	font-size: 30px;
+.basketball-icon {
+	color: #41a1d7;
 }
 
 /* 热门内容中的一个视频条目 */
@@ -312,6 +304,11 @@ export default {
 	display: block;
 	font-size: 12px;
 	color: #999;
+}
+.video-title:hover,
+.video-publisher span:nth-child(2):hover {
+	color: #00a1d6 !important;
+	transition: color 0.5s;
 	cursor: pointer;
 }
 </style>

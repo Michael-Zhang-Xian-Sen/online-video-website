@@ -92,6 +92,7 @@ export default {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 	transition: background-color 0.5s;
 	-webkit-transition: background-color 0.5s;
+	z-index: 100;
 }
 .fix-header {
 	position: fixed;
