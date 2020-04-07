@@ -4,7 +4,7 @@
         <el-upload class="avatar-uploader"
                    ref="upload"
                    drag
-                   action="https://aa/posts/"
+                   action="http://47.99.44.124:8088/upload"
                    :auto-upload="false"
                    :limit="1"
                    :on-exceed="uploadExceed"

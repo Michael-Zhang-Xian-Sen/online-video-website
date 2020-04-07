@@ -26,6 +26,9 @@
 			</li>
 		</ul>
 		<ul class="nav-user">
+			<li class="nav-link-item" @click="routerPush('/video_upload')">
+				<img class="user-head" src="@/assets/image/video_upload.jpg" />
+			</li>
 			<li class="nav-link-item">
 				<img class="user-head" src="@/assets/image/default_head.jpg" />
 			</li>
@@ -35,10 +38,9 @@
 			<li class="nav-link-item">
 				<span @click="routerPush('/login/register_tel')">注册</span>
 			</li>
-			<!-- 未开发该功能，故不予显示 -->
-			<!-- <li class="nav-user">
-				<el-button class="contribute" type="primary">投稿</el-button>
-			</li>-->
+			<li class="nav-user">
+				<el-button class="contribute" type="primary" @click="routerPush('/video_upload')">投稿</el-button>
+			</li>
 		</ul>
 	</div>
 </template>

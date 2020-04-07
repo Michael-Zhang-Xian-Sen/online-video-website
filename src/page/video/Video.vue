@@ -23,7 +23,7 @@
                     <use v-if="videoInfo.isMarked" xlink:href="#icon-mark2"/>
                     <use v-else xlink:href="#icon-mark1"/>
                 </svg>
-                <span v-clipboard:copy="page.url" v-clipboard:success="videoShare">
+                <span v-clipboard:copy="page.url">
                     <svg class="icon" aria-hidden="true" @click="videoShare">
                         <use xlink:href="#icon-share"/>
                     </svg>
