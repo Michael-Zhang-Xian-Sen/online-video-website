@@ -4,9 +4,9 @@
 			<el-row class="website-info">
 				<el-col :span="16">
 					<div class="footer-item1">
-						<div class="item-header">我爱运动</div>
+						<div class="item-header">Alstonの视频网站</div>
 						<div class="item-content">
-							<div>这里放网站的文案。创办网站的目的等。</div>
+							<div>一个健康的学习网站，你值得拥有</div>
 						</div>
 					</div>
 				</el-col>
@@ -14,7 +14,7 @@
 					<div class="footer-item1">
 						<div class="item-header">帮助</div>
 						<div class="item-content">
-							<div>这里帮助信息？</div>
+							<div>帮个屁，自己学</div>
 						</div>
 					</div>
 				</el-col>
@@ -23,8 +23,8 @@
 						<div class="item-header">关于我们</div>
 						<div class="item-content">
 							<ul>
-								<li>组长：张恩奇</li>
-								<li>组员：张浩、金如宾、张皓明</li>
+								<li>联合会会长：Alston</li>
+								<li>会员：Alston</li>
 							</ul>
 						</div>
 					</div>
@@ -35,12 +35,12 @@
 					<!-- 这里做分享网站的链接 -->
 					<div class="footer-item2">
 						<div>
-							<font-awesome-icon @click="shareLink('qq')" :icon="['fab','qq']" class="brand-logo" />
-							<font-awesome-icon @click="shareLink('weixin')" :icon="['fab','weixin']" class="brand-logo" />
+							<font-awesome-icon @click="shareLink('小孩子别瞎了解')" :icon="['fab','qq']" class="brand-logo" />
+							<font-awesome-icon @click="shareLink('小孩子别瞎了解')" :icon="['fab','weixin']" class="brand-logo" />
 						</div>
 					</div>
 				</el-col>
-				<el-col :span="12" class="footer-icp">这里是icp备案</el-col>
+				<el-col :span="12" class="footer-icp">宇宙联合会联合备案号3838438</el-col>
 				<el-col :span="6"></el-col>
 			</el-row>
 		</div>

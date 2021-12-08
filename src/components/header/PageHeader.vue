@@ -13,22 +13,23 @@
 						<img src="@/assets/image/logo-pe-blue.png" v-show="scrollTop != 0" />
 					</transition>
 				</div>
-				<span>我爱运动</span>
+				<span>Alstonの视频网站</span>
 			</li>
 			<li class="nav-link-item header-logo" v-else>
 				<div>
 					<img src="@/assets/image/logo-pe-blue.png" />
 				</div>
-				<span>我爱运动</span>
+				<span>Alstonの视频网站</span>
 			</li>
 			<li class="nav-link-item">
 				<span @click="routerPush('/home')">主页</span>
 			</li>
 		</ul>
 		<ul class="nav-user">
-			<li class="nav-link-item" @click="routerPush('/video_upload')">
+			<!-- 将上传视频的功能屏蔽掉 -->
+			<!-- <li class="nav-link-item" @click="routerPush('/video_upload')">
 				<img class="user-head" src="@/assets/image/video_upload.jpg" />
-			</li>
+			</li> -->
 			<li class="nav-link-item">
 				<img class="user-head" src="@/assets/image/default_head.jpg" />
 			</li>
@@ -38,9 +39,10 @@
 			<li class="nav-link-item">
 				<span @click="routerPush('/login/register_tel')">注册</span>
 			</li>
-			<li class="nav-user">
+			<!-- 将投稿功能屏蔽 -->
+			<!-- <li class="nav-user">
 				<el-button class="contribute" type="primary" @click="routerPush('/video_upload')">投稿</el-button>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 </template>
